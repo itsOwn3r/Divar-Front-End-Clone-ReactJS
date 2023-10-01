@@ -13,9 +13,9 @@ const Footer = () => {
             صفحه اصلی
         </Link>
         
-        <a href='https://t.me/' target='_blank' rel="noreferrer" className='mx-[8px] text-[orange]'>کانال تلگرام</a>
+        <a href='https://t.me/' target='_blank' rel="noopener noreferrer" className='mx-[8px] text-[orange]'>کانال تلگرام</a>
        
-        <a href='https://own3r.me' target='_blank' rel="noreferrer" className='mx-[8px] text-[orange]'>برنامه نویس: </a>
+        <a href='https://own3r.me' target='_blank' rel="noopener noreferrer" className='mx-[8px] text-[orange]'>برنامه نویس: </a>
 
     </div>
 </footer>

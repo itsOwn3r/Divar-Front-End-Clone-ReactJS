@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
 import HeaderOfAds from "../../Header/HeaderOfAds";
-import { useParams, useNavigate, Link, useSearchParams} from "react-router-dom";
+import { useParams, useNavigate, Link} from "react-router-dom";
 import Backdrop from "../../Backdrop/Backdrop";
 const Chat = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [chatId, setChatId] = useState(0);
   const [refresh, setRefresh] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate()
   let { id } = useParams();
-  let chatIdQuery = searchParams.get('id')
-  const token = localStorage.getItem("token") || null;
-  const lsData = localStorage.getItem("data") || null;
   const getDate = (date) => {
     let correctDate;
     let nowDate = Date.now() / 1000;
@@ -81,12 +76,9 @@ const Chat = () => {
               "images": "ads/891.jpg"
           }
       ]
-        if (dummydata) {
-          setChatId(dummydata.chatid)
-        }
         if (id) {
           dummydata.forEach((item) => {
-            if (item.adid == id) {
+            if (item.adid === Number(id)) {
               setData(item)
             }
           } )
@@ -100,7 +92,7 @@ const Chat = () => {
       }
     };
     sendReq();
-  }, [refresh]);
+  }, [refresh, id]);
 
 
 
@@ -179,12 +171,12 @@ const Chat = () => {
                     </div>
                   </div>
                 </div>
-                {data.content?.map((item, i) => {
+                {data.content.map((item, i) => {
                   return <React.Fragment key={i}>
                 <div className="p-[0_8px]">
                   <div>
                     <div className={`flex pb-[16px] ${item.sender === "اکانت دمو" ? 'justify-start' : 'justify-end'}`}>
-                      <div className={`text-[0.935rem] font-[500] leading-[2] p-[8px_12px_4px] bg-[#f5f5f5] text-[rgba(0,0,0,.87)] max-w-[70%] whitespace-pre-line word-break ${token === item.sender ? ' rounded-[16px_16px_0px_16px]' : ' rounded-[16px_16px_16px_2px]'}`}>
+                      <div className={`text-[0.935rem] font-[500] leading-[2] p-[8px_12px_4px] bg-[#f5f5f5] text-[rgba(0,0,0,.87)] max-w-[70%] whitespace-pre-line word-break ${item.sender === "اکانت دمو" ? ' rounded-[16px_16px_0px_16px]' : ' rounded-[16px_16px_16px_2px]'}`}>
                         <span>
                           {/* insert message's text here */}
                           

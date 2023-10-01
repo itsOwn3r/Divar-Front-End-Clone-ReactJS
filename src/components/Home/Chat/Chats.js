@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import Postchi from './Postchi'
 const Chats = () => {
     const [ data, setData ] = useState(null)
-    const token = localStorage.getItem("token") || null
     const getDate = (date) => {
     let correctDate;
     let nowDate = Date.now() / 1000
@@ -39,7 +38,7 @@ useEffect(()=> {
                     "sender_name": "محمد محمدی",
                     "receiver_name": "اکانت دمو",
                     "chatid": 0,
-                    "adid": 87,
+                    "adid": "87",
                     "content": {
                         "text": "سلام. تخفیف نمیدید؟",
                         "sender": "محمد محمدی", // user's uid goes here
@@ -53,7 +52,7 @@ useEffect(()=> {
                     "sender_name": "علی علیپور",
                     "receiver_name": "اکانت دمو",
                     "chatid": 0,
-                    "adid": 89,
+                    "adid": "89",
                     "content": {
                         "text": "سلام نه. رجیستر هم نمیشه",
                         "sender": "علی علیپور", // user's uid goes here
@@ -85,13 +84,13 @@ useEffect(()=> {
                                 <Postchi />
                               {/* postchi end */}
 
-                                {data?.map((item, index) => {
-                                  return  <Link to={"/chat/" + item.adid + `?id=${item.chatid}`} key={index}><div className='pt-[16px] bg-[rgba(240,250,255,.24)] cursor-pointer block'>
+                                {data && data.map((item, index) => {
+                                  return  <Link to={"/chat/" + item.adid + "?id=" + item.chatid} key={index}><div className='pt-[16px] bg-[rgba(240,250,255,.24)] cursor-pointer block'>
                                     <div className="flex">
                                         <div className='flex-1 w-[70%]'>
                                         <div className="">
                                         <p className="text-[0.935rem] leading-[2] font-[500] overflow-hidden text-ellipsis whitespace-nowrap m-0 text-[rgba(0,0,0,.87)] ">
-                                                      {item.sender === token ? item.receiver_name : item.sender_name}
+                                                      {item.sender === "اکانت دمو" ? item.receiver_name : item.sender_name}
                                                 </p>
                                                 <div className="flex items-center mt-[5px]">
                                              <p className='leading-[2] text-[0.85rem] font-[500] overflow-hidden text-ellipsis whitespace-nowrap text-[rgba(0,0,0,.87)] flex-1 m-0'> {item.content.text} </p>  

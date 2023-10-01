@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Header from '../Header/Header';
 import Nav from '../Nav/Nav';
-import {useParams, useNavigate, Link} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 const Cat = ({type}) => {
-    let {id} = useParams() 
     const [display, setDisplay] = useState(true)
     const navigate = useNavigate()
     const hideHandler = () => {

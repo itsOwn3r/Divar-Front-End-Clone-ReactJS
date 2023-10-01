@@ -45,7 +45,7 @@ const Postchi = () => {
 
   return (
     <SkeletonTheme baseColor="#7c7c7c" highlightColor="#a1a1a1" inline="true" duration={"3"} height={30} borderRadius={"0.75rem"}>
-    <Link to={""}><div className='pt-[22px] bg-[rgba(240,250,255,.24)] cursor-pointer block'>
+    <Link to="/"><div className='pt-[22px] bg-[rgba(240,250,255,.24)] cursor-pointer block'>
     <div className="flex">
         <div className='flex-1 w-[70%]'>
         <div className="flex items-center m-[0_0_10px]">

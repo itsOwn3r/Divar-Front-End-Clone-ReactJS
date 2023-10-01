@@ -35,7 +35,6 @@ const Contents = ({name, price, date, images, ad_id, type, myPosts}) => {
     }
     const removeHandler = (e) =>{
         e.preventDefault()
-        const idToRemove =  e.target.parentElement.parentElement.getAttribute("adid")
         let con =  window.confirm("آیا از حذف این آگهی اطمینان دارید؟")
         if (con) {
             const req = async () => {

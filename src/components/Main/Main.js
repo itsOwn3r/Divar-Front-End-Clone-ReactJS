@@ -11,7 +11,6 @@ const Main = ({ adsID }) => {
   const [refresh, setRefresh] = useState(false);
   const location = useLocation();
   const myPosts = !id && !adsID && location.pathname.includes("my/posts");
-  console.log(query)
   useEffect(() => {
     const req = async () => {
       try {
@@ -23,7 +22,6 @@ const Main = ({ adsID }) => {
         }
         setData(cat);
         })}else if(query){
-          console.log(query)
         let search = [];
          DUMMYDATA.forEach(ad => {
          if (ad.title.includes(query) || ad.description.includes(query)) {
@@ -160,7 +158,7 @@ const Main = ({ adsID }) => {
                   ) : (
                     ""
                   )}
-                  {data?.map((ads, index) => {
+                  {data && data.map((ads, index) => {
                     return (
                       <Contents
                         ad_id={ads.id || null}

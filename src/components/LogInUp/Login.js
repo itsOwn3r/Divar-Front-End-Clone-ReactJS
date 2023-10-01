@@ -52,7 +52,7 @@ const Login = () => {
       }
 
       if (fetchUrl.includes("signup")) {
-        if(error?.includes("دقیقه دیگر تلاش کنید")){
+        if(error.includes("دقیقه دیگر تلاش کنید")){
           return;
         }
         if (!password) {
@@ -119,7 +119,7 @@ const Login = () => {
                 <div className="w-[100%] relative h-[2.5rem] flex justify-center items-center">
                     <input onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber ? phoneNumber : ''} type='tel' name='mobile' inputMode='numeric' autoComplete='tel' placeholder='09171234567' className='pl-[58px] ltr pr-[16px] h-[2.5rem] leading-[2.5rem] absolute bg-[#fff] rounded-[5px] box-border text-[rgba(0,0,0,.87)] text-[1rem] outline-0 w-[100%] border-[rgba(0,0,0,.24)] border-solid border-[1px] md:w-[65%]' />
                 </div>
-          {(!error?.includes("دقیقه دیگر تلاش کنید")) ?
+          {(!error.includes("دقیقه دیگر تلاش کنید")) ?
            <>
 
              {userExist === false & (error !== "در ارسال پیامک مشکلی به وجود آمد :(")  ? <div className="fadeInOut w-[100%] mt-[30px] relative h-[2.5rem] flex justify-center items-center">

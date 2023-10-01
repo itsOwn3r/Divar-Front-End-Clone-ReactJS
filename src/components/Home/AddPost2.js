@@ -15,9 +15,6 @@ const AddPost = () => {
     img: "",
     imgName: ""
   }])
-  const removeImg = (e) =>  {
-    e.target.parentElement.parentElement.remove()
-    };
   let { post } = useParams();
   const userIsLoggedIn = document.cookie.includes("token") && document.cookie.includes("phone") && localStorage.getItem("phone") !== null
   useEffect(() => {
@@ -107,7 +104,9 @@ if (e.type === "submit") {
   }
   formData.append('jsonData', JSON.stringify(dataToSend))
 
-    setError("This is a static version. Sending post is not supported.")
+    // setError("This is a static version. Sending post is not supported.")
+    setSuccess("آگهی ارسال شد. (مثلا)")
+    setError("")
     setTitle("")
     setDescription("")
     setPrice("")

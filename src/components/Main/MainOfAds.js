@@ -15,14 +15,12 @@ const MainOfAds = () => {
   const [date, setDate] = useState("");
   const [refresh, setRefresh] = useState(false);
   const [userPhone, setUserPhone] = useState(null);
-  const userToken = localStorage.getItem("token");
   useEffect(() => {
     const req = async () => {
-      const token = userToken ? ` ${userToken}` : "000";
       try {
          let exactDate;
         DUMMYDATA.forEach(ad => {
-          if (ad.id === id) {
+        if (ad.id == id) {
         setData(ad);
         setimgs(ad["images"].reverse());
       }
@@ -61,9 +59,9 @@ const MainOfAds = () => {
       }
     };
     req();
-  }, [refresh]);
+  }, [refresh, id]);
   if (data) {
-    document.title = `${data?.title + " - دیوار اهواز"}`;
+    document.title = `${data.title + " - دیوار اهواز"}`;
   }
   const [picUrl, setPicUrl] = useState(null);
   const showSinglePic = () => {
@@ -121,7 +119,7 @@ const MainOfAds = () => {
           <div className="flex justify-end">
            
               <>
-                {data && data["chat_disabled"] != 1 && (
+
                   <Link
                     to={`/chat/${data && data.id}`}
                     className="flex-1 inline-flex ml-[10px] box-border bg-[#a62626] items-center rounded-[5px] text-[#fff] cursor-pointer text-[1rem] font-[500] h-[2.5rem] justify-center leading-normal outline-none overflow-hidden px-[16px] relative min-w-[125px]"
@@ -132,7 +130,7 @@ const MainOfAds = () => {
                       </span>
                     </button>
                   </Link>
-                )}
+                
                 <a
                   href={`tel://${userPhone}`}
                   target="_blank"
@@ -170,7 +168,7 @@ const MainOfAds = () => {
                 showStatus={false}
                 onClickItem={(i, item) => setPicUrl(item.props.src)}
               >
-                {imgs &&
+                {imgs ?
                   imgs.map((dt, index) => {
                     return (
                       <img
@@ -179,7 +177,7 @@ const MainOfAds = () => {
                         key={index}
                       />
                     );
-                  })}
+                  }) : ""}
               </Carousel>
               {!data ? (
                 <div className="overflow-hidden text-center">
