@@ -16,12 +16,6 @@ const AddPost = () => {
     imgName: ""
   }])
   let { post } = useParams();
-  const userIsLoggedIn = document.cookie.includes("token") && document.cookie.includes("phone") && localStorage.getItem("phone") !== null
-  useEffect(() => {
-    if (!userIsLoggedIn) {
-    return navigate("/login")
-  }
-  }, [])
   
   let postType;
   switch (post) {
