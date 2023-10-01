@@ -12,10 +12,10 @@ Login and Sign Up (with OTP via SMS), Chat, Postchi, Sending new ad(Also removin
 
 `Pictures:`
 
-divar.ir:
+divar.ir: <br>
 ![divar (1)](https://github.com/itsOwn3r/Divar-Front-End-Clone-ReactJS/assets/119396660/847c4f88-ba02-48f6-8f17-8db699b447ca)
 
-My clone:
+My clone: <br>
 ![divar-clone (1)](https://github.com/itsOwn3r/Divar-Front-End-Clone-ReactJS/assets/119396660/4c3a112f-df01-4dbb-990c-6de011d07804)
 
 
